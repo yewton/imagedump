@@ -9,6 +9,7 @@ CACHE_DIR = File.dirname(__FILE__) + "/cache"
 def main(argv)
   format = :text
   opts = OptionParser.new
+  emacsvar = ""
   opts.on("--emacs VARNAME") do |v|
     format = :emacs
     emacsvar = v
@@ -37,7 +38,7 @@ def main(argv)
       c.format = format
       c.convert_executable = "convert"
       c.colormap_image = "#{RESOURCE_DIR}/xterm-256colormap.gif"
-      c.options[:emacs][:varname] = "twit-icon-rgb-dump-list"
+      c.options[:emacs][:varname] = emacsvar
     end
 
     File.open(cache_path, "w") do |file|

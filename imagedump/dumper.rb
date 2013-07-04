@@ -34,7 +34,7 @@ module ImageDump
       parsed = parse_dump(text_dump)
       parsed.each do |hor|
         result += "("
-        result += '"' + hor.map {|h| h[:hex] }.join('","') + '"'
+        result += '"' + hor.map {|h| h[:hex] }.join('" "') + '"'
         result += ")\n"
       end
       result += "))\n"
